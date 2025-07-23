@@ -1,1 +1,30 @@
 /* место для вашего кода */
+
+.header {
+    display: grid;
+    grid-template-columns: 1fr min-content 1fr;
+    align-items: center;
+}
+
+.header_links-list {
+    display: flex;
+    gap: 23px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.header_links-list-items_no-bullit {
+    list-style: none;
+}
+
+.header_link {
+    text-decoration: underline;
+}
+
+.header_links-list-items {
+    list-style: circle;
+}
+
+.header_logo-link {
+    display: block;
+}
