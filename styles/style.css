@@ -1,9 +1,5 @@
 /* место для вашего кода */
 
-a {
-  cursor: pointer;
-}
-
 .header {
   display: grid;
   grid-template-columns: 1fr min-content 1fr;
@@ -63,7 +59,6 @@ a {
   list-style: none;
   width: 240px;
   height: 98px;
-  margin-top: 3px;
 }
 
 .header__adress-item {
