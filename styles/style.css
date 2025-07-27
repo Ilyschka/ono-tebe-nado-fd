@@ -1,15 +1,20 @@
 /* место для вашего кода */
 
+a {
+    cursor: pointer;
+}
+
+
 .header {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    display: grid; 
+    grid-template-columns: auto auto auto;
     align-items: center;
     padding: 100px 50px
 }
 
 .header_menu {
-    display: flex;
-    width: 391.4px;
+    align-self: center;
+    justify-self: start;
 }
 
 .header_links-list {
@@ -21,24 +26,18 @@
     font-family: Raleway, sans-serif;
     font-weight: 400;
     font-size: 18px;
+    list-style: circle;
 
 }
-
-.header_logo {
+.header__logo {
     display: block;
-    background: url(/images/logo-black.svg) no-repeat cover/center;;
     width: 148px;
     height: 105px;
-
 }
 
-.adress {
-    margin: 0px;
-    padding: 0px;
-    width: 240px;
-    height: 98px;
+.header__adress {
     justify-self: end;
-    display: flex;
+    align-self: center;
 }
 
 .header_adress {
@@ -49,10 +48,14 @@
     white-space: wrap;;
     text-align: left;
 }
+.header_links-list-items_no-bullit {   /*пофиксить */
+    list-style: none;
+}
 
 
-
-
+.header_logo-link {
+    display: block;
+}
 
 
 .cover {
@@ -60,20 +63,32 @@
     padding: 165px 50px 50px 50px;
     position: relative;
     background-image:url(/images/cover.jpg);
-    background: url(/images/cover.jpg) no-repeat cover/ center;
+    background: url(/images/cover.jpg) no-repeat;
     background-size: cover;
+    background-position: center bottom;
     margin-bottom: 180px;
+}
 
+.overlay {
+    position: absolute;
+    background-color: black;
+    opacity: 0.6;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .cover__title {
-    display: inline-flex;
+    position: relative;
+    display: flex;
     flex-direction: column;
     gap: 20px;
     align-items: center;
-    min-width: 1000px;
     min-height: 385px;
     margin-bottom: 106px;
+    z-index: 1;
 }
 
 .aligned-text {
@@ -88,17 +103,14 @@
 
 .aligned-text_left {
     align-self: flex-start;
-    text-align: left;
 }
 
 .aligned-text_center {
     align-self: center;
-    align-self: center;
 }
 
 .aligned-text_right {
-    align-self: flex-end;
-    text-align: right;
+    align-self: flex-end;   
 }
 
 .letter-spacing-extended {
@@ -109,13 +121,13 @@
     letter-spacing: 0em;
 }
 
-
 .cover__description {
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    
+    z-index: 1;
 }
 
 .cover__description-text {
@@ -127,7 +139,6 @@
     text-transform: uppercase;
     color: white;
 }
-
 
 .bet-button {
     font-family: Raleway, sans-serif;
@@ -142,50 +153,10 @@
     text-transform: uppercase;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.main {
-    padding: 
-}
-
-.header_links-list-items_no-bullit {
-    list-style: none;
-}
-
-.header_link {
-    text-decoration: underline;
-}
-
-.header_links-list-items {
-    list-style: circle;
-}
-
-.header_logo-link {
-    display: block;
-}
-
-
-
-
-
 .lots {
     position: relative;
     padding: 74px 0px 53px 0px;
-    min-width: 1052px;
+    margin: 0px 24px 120px 24px;
 }
 
 .lots__heading {
@@ -206,6 +177,7 @@
 }
 
 .lots__card-list-item {
+    position: relative;
     min-width: 334px;
     min-height: 596px;
     display: block;
@@ -215,24 +187,28 @@
     display: block;
 }
 
-.card {
-    position: relative;
+.overlay {
+    position: absolute;
+    background-color: black;
+    opacity: 0.6;
+    top: 0;
+    left: 0;
     z-index: 0;
-    
+    width: 100%;
+    height: 100%;
 }
+
 .card_type_film, .card_type_book, .card_type_picture {
+    z-index: -1;
     position: absolute;
     width: 100%;
     min-height: 596px;
     object-fit: cover;
-    object-position: center bottom;
-    z-index: -1;
-
-    
-    
+    object-position: center bottom; 
 }
 
 .card__title {
+    z-index: 0;
     position: absolute;
     left: 40px;
     top: 48px;
@@ -245,23 +221,30 @@
     font-size: 22px;
     line-height: 1.2;
     color: white;
-    z-index: 1;
 }
 
 .card__text {
+    z-index: 0;
     position: absolute;
     left: 40px;
-    bottom: 48px;
+    top: 404px;
     right: 40px; 
     display: block;
     font-family: Raleway, sans-serif;
+    text-align: bottom;
     font-weight: 400;
     font-size: 20px;
     line-height: 1.2;
     left: 40px;
-    color: white;
-    z-index: 1;
-    
+    color: white;  
+}
+
+.card__text-book {
+    top: 188px;
+}
+
+.card__text-picture {
+    top: 284px;
 }
 
 .lots__look-more-link {
@@ -270,9 +253,144 @@
     bottom: 0px;
     display: block;
     font-family: Raleway, sans-serif;
+    font-weight: 200px;
     font-weight: 700;
     text-transform: lowercase;
     font-size: 20px;
     text-decoration: underline;
     color: black;
+    cursor: pointer;
 }
+
+.about {
+    padding: 35px 0px 0px 47px;
+    margin: 0px 24px 180px 24px;
+    display: grid;
+    grid-template-columns: 240px auto;
+    grid-template-rows: auto;
+    column-gap: 72px;
+}
+
+.about__logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 240px;
+    height: 240px;
+    background-color: black;
+    border-radius: 50%;
+}
+
+.about__logo-image {
+    width: 148px;
+    height: 114px;
+}
+
+
+.about__title {
+
+    font-family: Raleway, sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 1.2;
+    text-transform: uppercase;
+    color: black;
+    text-align: left;
+    margin-top: 98px;
+    margin-bottom: 100px;
+}
+
+.about__text {
+
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.about__text-paragraf {
+    white-space: normal;
+    font-family: Raleway, sans-serif;
+    font-size: 20px;
+    line-height: 24px;
+    color: black;
+}
+
+.footer {
+    padding: 0px 50px 82px 50px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-content: center;
+}
+
+.footer__adress {
+    align-self: start;
+    justify-self: start;
+    display: block;
+}
+
+.footer__adress-item {
+    display: block;
+    font-family: Raleway, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24.3px;
+    color: black;
+    list-style: none;
+
+}
+
+.footer__address-item-adress {
+    text-decoration: none;
+}
+
+.footer__menu {
+    justify-self: center;
+    align-self: start;
+
+}
+
+.footer__menu-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+}
+
+.footer__menu-list-item {
+    font-family: Raleway, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    text-transform: lowercase;
+
+}
+
+.footer__menu-link-active {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.footer__menu-link {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.footer__social-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: start;
+    height: 48px;
+    gap: 48px;
+}
+
+.footer__social-link {
+    cursor: pointer;
+}
+
+.footer__social-icon {
+    width: 48px;
+    height: 48px;
+}
+
